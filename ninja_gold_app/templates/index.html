@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container bg-light">
+        <h3>Your Gold: {{ gold }}</h1>
+        <div class='row'>
+            <form action='/process_money' method='POST' class='col bg-primary m-1 p-1 text-center'>
+                {% csrf_token %}
+                <h4>Farm</h4>
+                <p>(earns 10-20 golds)</p>
+                <input type='hidden' name='gold_value' value='farm'>
+                <button type="submit">Get Gold</button>
+            </form>
+            <form action='/process_money' method='POST' class='col bg-primary m-1 p-1 text-center'>
+                {% csrf_token %}
+                <h4>Cave</h4>
+                <p>(earns 5 -10 golds)</p>
+                <input type='hidden' name='gold_value' value="cave">
+                <button type="submit">Get Gold</button>
+            </form>
+            <form action='/process_money' method='POST' class='col bg-primary m-1 p-1 text-center'>
+                {% csrf_token %}
+                <h4>House</h4>
+                <p>(earns 2-5 golds)</p>
+                <input type='hidden'  name='gold_value' value="house">
+                <button type="submit">Get Gold</button>
+            </form>
+            <form action='/process_money' method='POST' class='col bg-primary m-1 p-1 text-center'>
+                {% csrf_token %}
+                <h4>Casino</h4>
+                <p>(earn/takes 0-50 golds)</p>
+                <input type="hidden" name='gold_value' value='casino'>
+                <button type="submit">Get Gold</button>
+            </form>
+        </div>
+        <p>Activities:</p>
+        <div class='bg-secondary'>
+            <p></p>
+        </div>
+    </div>
+</body>
+</html>
